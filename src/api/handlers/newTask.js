@@ -6,11 +6,11 @@ let newTask = (collection, req, res)=>{
 		createdDate: new Date(),
 		completed: false
 	};
-	// tasks.push(task);
 
-	collection.insert(task)
+	collection.insert(task, function(){
+		res.redirect('/');	
+	});
 	
-	res.redirect('/');
 };
 
 export default newTask;

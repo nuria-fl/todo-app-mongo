@@ -33,6 +33,9 @@ db.then(function(db){
 		console.log("Listening on port " + PORT);
 	});	
 
+})
+.catch(function(err) {
+	throw new Error("something failed in the connection");
 });
 
 export default app;

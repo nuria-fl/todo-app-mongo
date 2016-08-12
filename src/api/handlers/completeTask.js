@@ -1,4 +1,7 @@
-let completeTask = (collection, ObjectID, req, res)=>{
+import mongodb from 'mongodb';
+var ObjectID = mongodb.ObjectId;
+
+let completeTask = (collection, req, res)=>{
 	var taskId = req.query.id;
 
 	collection.updateOne({
@@ -8,8 +11,10 @@ let completeTask = (collection, ObjectID, req, res)=>{
 			completed: true,
 			completedDate: new Date()	
 		}		
-	})
-	res.end();	
+	}, function(){
+		res.end();		
+	});
+	
 };
 
 export default completeTask;

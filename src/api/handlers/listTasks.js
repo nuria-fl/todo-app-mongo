@@ -5,7 +5,7 @@ let listTasks = (collection, req, res) => {
 			tasks: data,
 			currentUrl: req.url
 		});	
-	})
+	});
 };
 
 export default listTasks;

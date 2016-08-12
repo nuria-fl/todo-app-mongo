@@ -1,18 +1,15 @@
-let deleteTask = (collection, ObjectID, req, res)=>{
+import mongodb from 'mongodb';
+var ObjectID = mongodb.ObjectId;
+
+let deleteTask = (collection, req, res)=>{
 	var taskId = req.query.id;
-	// var itemToDelete = null;
-	// tasks.forEach((elem, i) => {
-	// 	if(elem.id === taskId){
-	// 		itemToDelete = i;
-	// 	}
-	// });
-	// tasks.splice(itemToDelete, 1);
 
 	collection.deleteOne({
 		_id: ObjectID(taskId)
-	})
-
-	res.end();
+	}, function(err, result){
+		res.end();
+	});
+	
 };
 
 export default deleteTask;

@@ -1,8 +1,4 @@
 let completeAllTasks = (collection, req, res)=>{
-	// tasks.forEach( elem => {
-	// 	elem.completed = true;
-	// 	elem.completedDate = new Date();
-	// });
 	collection.updateMany({
 		completed: false
 	}, {
@@ -10,8 +6,10 @@ let completeAllTasks = (collection, req, res)=>{
 			completed: true,
 			completedDate: new Date()	
 		}		
-	})
-	res.end();
+	}, function(){
+		res.end();
+	});
+	
 };
 
 export default completeAllTasks;
